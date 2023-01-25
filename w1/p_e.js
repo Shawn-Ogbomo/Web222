@@ -64,7 +64,7 @@ switch (statusCode) {
         console.log(statusCode + " switching protocols");
         break;
     case processing:
-        console.log(status + " processing");
+        console.log(statusCode + " processing");
         break;
     case earlyHints:
         console.log(statusCode + " early hints");
