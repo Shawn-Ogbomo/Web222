@@ -66,5 +66,24 @@ try {
     console.log("oops, something went wrong...");
 }
 
-
 //question 5
+function isUnder50(numbers) {
+    const max = 50;
+    for (let i = 0; i < arguments.length; ++i) {
+        if (typeof arguments[i] === "string") {
+            throw  Invalid;
+        }
+        if (arguments[i] >= max) {
+            return false;
+        }
+    }
+    return true;
+}
+
+try {
+    console.log(isUnder50(1, 2, 3, 4, 5, 6, 100, 8, 9, 10));
+} catch (Invalid) {
+    console.log("oops, something went wrong...");
+}
+
+//question 6
