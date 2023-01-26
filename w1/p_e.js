@@ -16,8 +16,8 @@ console.log(isNotSeneca);
 //question 4
 let byte1 = 11;
 let byte2 = 4;
-let byte3 = 230;
-let byte4 = 100;
+let byte3 = 70;
+let byte4 = 44;
 
 //question 5
 console.log(byte1.toString(16));
@@ -29,14 +29,13 @@ let ipAddress = byte1.toString() + "." + byte2.toString() + "." + byte3.toString
 console.log(ipAddress);
 
 //question 7
-let ipInt = ((byte1 + byte2 + byte3 + byte4).toString(2));
-
-
-//let result =  parseInt(ipInt,2);
-//console.log(result);
+let ipInt = ((((Math.pow(2, 24) * byte1) + Math.pow(2, 16) * byte2) + Math.pow(2, 8) * byte3) + Math.pow(2, 0) * byte4);
+console.log(ipInt);
 
 
 //question 8
+let ipBinary = ipInt.toString(2);
+console.log(ipBinary);
 
 
 //question 9
