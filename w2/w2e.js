@@ -158,3 +158,43 @@ try {
 } catch (Invalid) {
     console.log("oops, something went wrong...");
 }
+
+//question 9
+function isMultipleOf3(number) {
+    return number % 3 == 0;
+}
+
+//question10
+function checkBetween(number1, number2, number3, option) {
+    if (option) {
+        return number2 >= number1 && number2 <= number3;
+    } else if (!option) {
+        return !(number2 >= number1 && number2 <= number3);
+    }
+}
+
+console.log(checkBetween(100, 150, 200, false));
+
+//question11
+function calculateHst(purchaseAmount) {
+    const hst = .13;
+    return purchaseAmount + (purchaseAmount * hst);
+}
+
+console.log(calculateHst(100));
+
+//question 12
+function discount(amount, cost) {
+    if (!arguments.length) {
+        return cost;
+    }
+    const discountPercentage = amount / 100;
+    return cost - (discountPercentage * cost);
+}
+
+console.log(discount(30, 500));
+
+//question 13
+function daysHoursMins(seconds){
+
+}
