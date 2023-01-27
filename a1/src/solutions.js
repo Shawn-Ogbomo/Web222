@@ -8,8 +8,8 @@
  *
  * Please update the following with your information:
  *
- *      Name: <YOUR_NAME>
- *      Student ID: <YOUR_STUDENT_ID>
+ *      Name: <Shawn Ogbomo>
+ *      Student ID: <022609127>
  *      Date: <SUBMISSION_DATE>
  *
  * Please see all unit tests in the files problem-00.test.js, problem-01.test.js, etc.
@@ -109,8 +109,10 @@
  ******************************************************************************/
 
 function greeting(name) {
-  return `Hello ${name}`;
+    return `Hello ${name + "!"}`;
 }
+
+greeting('WEB222 Student');
 
 /*******************************************************************************
  * Problem 1: replace all internal whitespace in a string value with underscores
@@ -136,7 +138,26 @@ function greeting(name) {
  ******************************************************************************/
 
 function normalizeVariable(value) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
+    let invalids = /[.\s]/g;
+    value = value.toUpperCase().trim();
+    const underscore = '_';
+    value = value.replace(invalids, underscore);
+    value = value.split('');
+    for (let i = 0; i < value.length; ++i) {
+        if (value[i] === underscore) {
+            for (let j = i + 1; j < value.length; ++j) {
+                if (value[j] === underscore) {
+                    value[j] = "";
+                } else {
+                    i = j;
+                    j = value.length;
+
+                }
+            }
+        }
+    }
+    return value.join("");
 }
 
 /*******************************************************************************
@@ -189,8 +210,9 @@ function normalizeVariable(value) {
  ******************************************************************************/
 
 function createIframe(src, height, allowFullScreen) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
+
 /*******************************************************************************
  * Problem 3: fix the formatting of Canadian Postal Codes
  *
@@ -223,7 +245,7 @@ function createIframe(src, height, allowFullScreen) {
  ******************************************************************************/
 
 function fixPostalCode(postalCode) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 /*******************************************************************************
@@ -268,7 +290,7 @@ function fixPostalCode(postalCode) {
  ******************************************************************************/
 
 function toProvince(postalCode, useShortForm) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 /*******************************************************************************
@@ -298,7 +320,7 @@ function toProvince(postalCode, useShortForm) {
  ******************************************************************************/
 
 function normalizeCoord(value) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 /*******************************************************************************
@@ -329,7 +351,7 @@ function normalizeCoord(value) {
  ******************************************************************************/
 
 function formatCoords(...values) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 /*******************************************************************************
@@ -359,7 +381,7 @@ function formatCoords(...values) {
  ******************************************************************************/
 
 function countForProvince(provinceCode, ...postalCodes) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 /*******************************************************************************
@@ -412,7 +434,7 @@ function countForProvince(provinceCode, ...postalCodes) {
  ******************************************************************************/
 
 function generateLicenseLink(licenseCode, targetBlank) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 /*******************************************************************************
@@ -440,7 +462,7 @@ function generateLicenseLink(licenseCode, targetBlank) {
  ******************************************************************************/
 
 function pureBool(value) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 /*******************************************************************************
@@ -458,15 +480,15 @@ function pureBool(value) {
  ******************************************************************************/
 
 function every() {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 function any() {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 function none() {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 /*******************************************************************************
@@ -522,7 +544,7 @@ function none() {
  ******************************************************************************/
 
 function buildUrl(query, order, count, license) {
-  // Replace this comment with your code...
+    // Replace this comment with your code...
 }
 
 // Our unit test files need to access the functions we defined
