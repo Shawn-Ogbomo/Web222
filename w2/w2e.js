@@ -69,8 +69,11 @@ try {
 //question 5
 function isUnder50(numbers) {
     const max = 50;
+    if (numbers === undefined) {
+        throw Invalid;
+    }
     for (let i = 0; i < arguments.length; ++i) {
-        if (typeof arguments[i] === "string") {
+        if (typeof arguments[i] !== "number") {
             throw  Invalid;
         }
         if (arguments[i] >= max) {
@@ -81,9 +84,77 @@ function isUnder50(numbers) {
 }
 
 try {
-    console.log(isUnder50(1, 2, 3, 4, 5, 6, 100, 8, 9, 10));
+    console.log(isUnder50(1, 2, 3, 4, 5, 6, 7, 8, 9, 19));
 } catch (Invalid) {
     console.log("oops, something went wrong...");
 }
 
 //question 6
+function sum(numbers) {
+
+    if (!arguments.length) {
+        throw Invalid;
+    }
+    let total = 0;
+    for (let i = 0; i < arguments.length; ++i) {
+        if (typeof arguments[i] !== "number") {
+            throw  Invalid;
+        }
+        total += arguments[i];
+    }
+    return total;
+}
+
+try {
+    console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+} catch (Invalid) {
+    console.log("oops, something went wrong...");
+}
+
+//question 7
+function allExist() {
+    if (!arguments.length) {
+        throw Invalid;
+    }
+    for (let i = 0; i < arguments.length; ++i) {
+        let exists = arguments[i];
+        if (!exists) {
+            return false;
+        }
+    }
+    return true;
+}
+
+try {
+    console.log(allExist(1, "1", 0));
+} catch (Invalid) {
+    console.log("oops, something went wrong...");
+}
+
+//question 8
+function generateName(targetString) {
+    if (typeof targetString !== "string") {
+        throw Invalid;
+    }
+    if (!arguments.length || arguments.length > 1 || (/\s/).test(targetString)) {
+        throw Invalid;
+    }
+    const invalids = ['~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '+',
+        '[', ']', '{', '}', '|', ':', ';', '"', ',', '<', '>', '.', '?', '/'
+    ];
+    targetStringAsArray = targetString.split('');
+    for (let i = 0; i < targetStringAsArray.length; ++i) {
+        for (let j = 0; j < invalids.length; ++j) {
+            if (targetStringAsArray[i] == invalids[j])
+                throw Invalid;
+        }
+    }
+    const fileExtension = ".js"
+    return targetString + fileExtension;
+}
+
+try {
+    console.log(generateName(" "));
+} catch (Invalid) {
+    console.log("oops, something went wrong...");
+}
