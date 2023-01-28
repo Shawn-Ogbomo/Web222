@@ -327,3 +327,17 @@ function prepareString(targetString) {
 }
 
 console.log(prepareString("hello world my name is shawn!"));
+
+//question 20
+function buildQueryString(strings) {
+    if (arguments.length) {
+        let queryString = "";
+        for (let i = 0; i < arguments.length; ++i) {
+            !i ? queryString += "?" : queryString += "&";
+            queryString += prepareString(arguments[i]);
+        }
+        return queryString;
+    }
+}
+
+console.log(buildQueryString("hello world", "goodnight moon"));
