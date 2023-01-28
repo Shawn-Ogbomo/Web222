@@ -341,3 +341,16 @@ function buildQueryString(strings) {
 }
 
 console.log(buildQueryString("hello world", "goodnight moon"));
+
+//question 21
+function applyFn(s) {
+    let total = 0;
+    for (let i = 1; i < arguments.length; ++i) {
+        total += s(arguments[i]);
+    }
+    return total;
+}
+
+console.log(applyFn(function (x) {
+    return x * x;
+}, 1, 2, 3));
