@@ -241,24 +241,24 @@ function daysHoursMinsUpdate(seconds) {
     const secInHour = 3600;
     const secInMin = 60;
     let days = 0;
-    let result = (seconds / secInDay);
+    let result = (Math.floor(seconds / secInDay));
     if (result >= 1) {
         days += result
-        seconds -= (secInDay * result);
+        seconds %= secInDay
     }
-    result = (seconds / secInHour);
+    result = (Math.floor(seconds / secInHour));
     let hour = 0;
     if (result >= 1) {
         hour += result;
-        seconds -= (secInHour * result);
+        seconds %= secInHour;
     }
-    result = (seconds / secInMin);
+    result = (Math.round(seconds / secInMin));
     let min = 0;
     if (result >= 1) {
         min += result;
-        seconds -= (secInMin * result);
+        seconds %= secInMin;
     }
-    let timeReading;
+    let timeReading="";
     if (days) {
         timeReading = days.toString() + " days ";
     }
@@ -271,4 +271,4 @@ function daysHoursMinsUpdate(seconds) {
     return timeReading;
 }
 
-console.log(daysHoursMinsUpdate(787454876846846846874));
+console.log(daysHoursMinsUpdate(100));
