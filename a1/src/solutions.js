@@ -214,7 +214,7 @@ function createIframe(src, height, allowFullScreen) {
     src = src.trim();
     const iframeTag = "<iframe";
     const closingTag = "</" + "iframe>";
-    const heightTag = height >= 1 ? " height=\""  + height + "\"" : "";
+    const heightTag = height >= 1 ? " height=\"" + height + "\"" : "";
     const fullscreentag = allowFullScreen ? " allowfullscreen" : "";
     return iframeTag + " " + "src=" + "\"" + src + "\"" + heightTag +
         fullscreentag + ">" + closingTag;
@@ -253,6 +253,41 @@ function createIframe(src, height, allowFullScreen) {
 
 function fixPostalCode(postalCode) {
     // Replace this comment with your code...
+    class Invalid {
+    };
+    const invalids = /[DFIOQWUZ]/g;
+    const invalid2 = /[DFIOQU]/g;
+    postalCode = postalCode.trim();
+    postalCode = postalCode.toUpperCase();
+    if (postalCode.length === 6) {
+        let postalCodeTemp = postalCode.slice(0, 3)
+        let PostalCodeTemp2 = postalCode.slice(3, 6);
+        postalCode = postalCodeTemp + " " + PostalCodeTemp2;
+    } else if (postalCode.length !== 7) {
+        throw Invalid;
+    }
+    if (invalids.test(postalCode.charAt(0))) {
+        throw invalids;
+    }
+    if ((/[^0-9]/).test(postalCode.charAt(1))) {
+        throw Invalid;
+    }
+    if (invalid2.test(postalCode.charAt(2))) {
+        throw Invalid;
+    }
+    if (postalCode.charAt(3) !== " ") {
+        throw Invalid;
+    }
+    if ((/[^0-9]/).test(postalCode.charAt(4))) {
+        throw Invalid;
+    }
+    if (invalid2.test(postalCode.charAt(5))) {
+        throw Invalid;
+    }
+    if ((/[^0-9]/).test(postalCode.charAt(7))) {
+        throw Invalid;
+    }
+    return postalCode;
 }
 
 /*******************************************************************************
@@ -298,6 +333,96 @@ function fixPostalCode(postalCode) {
 
 function toProvince(postalCode, useShortForm) {
     // Replace this comment with your code...
+
+    try {
+        let postal = fixPostalCode((postalCode));
+        switch (postal.charAt(0)) {
+            case'K':
+            case'L':
+            case'M':
+            case'N':
+            case'P': {
+                if (useShortForm) {
+                    return "ON";
+                }
+                return "Ontario";
+            }
+            case'G':
+            case'H':
+            case'J': {
+                if (useShortForm) {
+                    return "QC";
+                }
+                return "Quebec";
+            }
+            case'B': {
+                if (useShortForm) {
+                    return "NS";
+                }
+                return "Nova Scotia";
+            }
+            case'E': {
+                if (useShortForm) {
+                    return "NB";
+                }
+                return "New Brunswick";
+            }
+            case'R': {
+                if (useShortForm) {
+                    return "MB";
+                }
+                return "Manitoba";
+            }
+            case'V': {
+                if (useShortForm) {
+                    return "BC";
+                }
+                return "British Columbia";
+            }
+            case'C': {
+                if (useShortForm) {
+                    return "PE";
+                }
+                return "Prince Edward Island";
+            }
+            case'S': {
+                if (useShortForm) {
+                    return "SK";
+                }
+                return "Saskatchewan";
+            }
+            case'T': {
+                if (useShortForm) {
+                    return "AB";
+                }
+                return "Alberta";
+            }
+            case'A': {
+                if (useShortForm) {
+                    return "NL";
+                }
+                return "Newfoundland and Labrador";
+            }
+            case'X': {
+                if (useShortForm) {
+                    return "NT";
+                }
+                return "Northwest Territories and Nunavut";
+            }
+            case'Y': {
+                if (useShortForm) {
+                    return "YT";
+                }
+                return "Yukon";
+            }
+            default:
+                return null;
+        }
+
+    } catch (Invalid) {
+        console.log("oops, something went wrong...");
+        return null;
+    }
 }
 
 /*******************************************************************************
