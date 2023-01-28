@@ -211,6 +211,13 @@ function normalizeVariable(value) {
 
 function createIframe(src, height, allowFullScreen) {
     // Replace this comment with your code...
+    src = src.trim();
+    const iframeTag = "<iframe";
+    const closingTag = "</" + "iframe>";
+    const heightTag = height >= 1 ? " height=\""  + height + "\"" : "";
+    const fullscreentag = allowFullScreen ? " allowfullscreen" : "";
+    return iframeTag + " " + "src=" + "\"" + src + "\"" + heightTag +
+        fullscreentag + ">" + closingTag;
 }
 
 /*******************************************************************************
