@@ -258,7 +258,7 @@ function daysHoursMinsUpdate(seconds) {
         min += result;
         seconds %= secInMin;
     }
-    let timeReading="";
+    let timeReading = "";
     if (days) {
         timeReading = days.toString() + " days ";
     }
@@ -272,3 +272,36 @@ function daysHoursMinsUpdate(seconds) {
 }
 
 console.log(daysHoursMinsUpdate(100));
+
+//question 15
+function flip(numbers) {
+    let numbersReversed = "";
+    for (let i = arguments.length; i > 0; --i) {
+        numbersReversed += arguments[i - 1];
+    }
+    return numbersReversed;
+}
+
+console.log(flip(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+//question 16
+function sum(x, y) {
+    return Math.floor(x + y);
+}
+
+console.log(sum(1.6, 3.333333));
+
+//question 17
+function findMatches(numbers) {
+    let target = arguments[0];
+    let count = 0;
+    for (let i = 1; i < arguments.length; ++i) {
+        if (arguments[i] === target) {
+            ++count;
+        }
+    }
+    return count;
+}
+console.log(findMatches(66, 1, 345, 2334, 66, 67, 66) );
+
+//question 18
