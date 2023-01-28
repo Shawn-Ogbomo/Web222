@@ -206,6 +206,41 @@ function daysHoursMins(seconds) {
     const secInHour = 3600;
     const secInMin = 60;
     let days = 0;
+    let result = (Math.floor(seconds / secInDay));
+    if (result >= 1) {
+        days += result
+        seconds %= secInDay
+    }
+    result = (Math.floor(seconds / secInHour));
+    let hour = 0;
+    if (result >= 1) {
+        hour += result;
+        seconds %= secInHour;
+    }
+    result = (Math.round(seconds / secInMin));
+    let min = 0;
+    if (result >= 1) {
+        min += result;
+        seconds %= secInMin;
+    }
+    return days.toString() + " days " + hour.toString() + "hours "
+        + min.toString() + " minutes";
+}
+
+console.log(daysHoursMins(100000));
+
+//question 14
+function daysHoursMinsUpdate(seconds) {
+    if (typeof seconds !== "number") {
+        throw Invalid;
+    }
+    if (!arguments.length) {
+        throw Invalid;
+    }
+    const secInDay = 86400;
+    const secInHour = 3600;
+    const secInMin = 60;
+    let days = 0;
     let result = (seconds / secInDay);
     if (result >= 1) {
         days += result
@@ -223,8 +258,17 @@ function daysHoursMins(seconds) {
         min += result;
         seconds -= (secInMin * result);
     }
-    return days.toString() + " days " + hour.toString() + "hours "
-        + min.toString() + " minutes";
+    let timeReading;
+    if (days) {
+        timeReading = days.toString() + " days ";
+    }
+    if (hour) {
+        timeReading = timeReading + days.toString() + "hours ";
+    }
+    if (min) {
+        timeReading = timeReading + min.toString() + " minutes";
+    }
+    return timeReading;
 }
 
-console.log(daysHoursMins(98465464))
+console.log(daysHoursMinsUpdate(787454876846846846874));
