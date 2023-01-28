@@ -302,6 +302,28 @@ function findMatches(numbers) {
     }
     return count;
 }
-console.log(findMatches(66, 1, 345, 2334, 66, 67, 66) );
+
+console.log(findMatches(66, 1, 345, 2334, 66, 67, 66));
 
 //question 18
+function showOutsideByteRange(numbers) {
+    const max = 255
+    for (let i = 0; i < arguments.length; ++i) {
+        if (arguments[i] > max) {
+            console.log(arguments[i]);
+        }
+    }
+}
+
+showOutsideByteRange(1, 5, 233, 255, 256, 0);
+
+//question 19
+function prepareString(targetString) {
+    const regex = /\s/g
+    if ((/\s/).test(targetString)) {
+        targetString = targetString.replace(regex, "%20");
+    }
+    return targetString;
+}
+
+console.log(prepareString("hello world my name is shawn!"));
