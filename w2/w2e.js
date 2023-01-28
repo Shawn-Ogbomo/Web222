@@ -145,7 +145,7 @@ function generateName(targetString) {
     targetStringAsArray = targetString.split('');
     for (let i = 0; i < targetStringAsArray.length; ++i) {
         for (let j = 0; j < invalids.length; ++j) {
-            if (targetStringAsArray[i] == invalids[j])
+            if (targetStringAsArray[i] === invalids[j])
                 throw Invalid;
         }
     }
@@ -161,7 +161,7 @@ try {
 
 //question 9
 function isMultipleOf3(number) {
-    return number % 3 == 0;
+    return number % 3 === 0;
 }
 
 //question10
@@ -195,6 +195,36 @@ function discount(amount, cost) {
 console.log(discount(30, 500));
 
 //question 13
-function daysHoursMins(seconds){
-
+function daysHoursMins(seconds) {
+    if (typeof seconds !== "number") {
+        throw Invalid;
+    }
+    if (!arguments.length) {
+        throw Invalid;
+    }
+    const secInDay = 86400;
+    const secInHour = 3600;
+    const secInMin = 60;
+    let days = 0;
+    let result = (seconds / secInDay);
+    if (result >= 1) {
+        days += result
+        seconds -= (secInDay * result);
+    }
+    result = (seconds / secInHour);
+    let hour = 0;
+    if (result >= 1) {
+        hour += result;
+        seconds -= (secInHour * result);
+    }
+    result = (seconds / secInMin);
+    let min = 0;
+    if (result >= 1) {
+        min += result;
+        seconds -= (secInMin * result);
+    }
+    return days.toString() + " days " + hour.toString() + "hours "
+        + min.toString() + " minutes";
 }
+
+console.log(daysHoursMins(98465464))
