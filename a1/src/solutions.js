@@ -453,6 +453,78 @@ function toProvince(postalCode, useShortForm) {
 
 function normalizeCoord(value) {
     // Replace this comment with your code...
+    class Invalid {
+    }
+
+    const longMin = -180;
+    const longMax = 180;
+    const latmin = -90;
+    const latMax = 90;
+    let result = "";
+    for (let i = 0; i < value.length; ++i) {
+        switch (value[i]) {
+            case '-': {
+                if (value.match(/-/g).length > 2) {
+                    throw Invalid;
+                }
+                if (!parseInt(value [i + 1], 10)) {
+                    throw Invalid;
+                }
+                result += value[i];
+                break;
+            }
+
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9': {
+                //get the entire number before a symbol
+                // check if the number is in the valid range
+                // if it's not
+                // -error
+                // if it is ++i equal to the size of the number -1
+                // add values to the new string to new string
+                let num = value.match(/[0-9]*[0-9]/).join('');
+                //let num = value.split(/[!@#$%^&*(,]/);
+                if (i === 0 || i === 1) {       //num is long
+                    if (num < longMin || num > longMax) {
+                        throw Invalid;
+                    }
+                } else if (i > 1) {                 //num is lat
+                    if (num < latmin || num > latMax) {
+                        throw Invalid;
+                    }
+
+                }
+                result += num;
+                i += (num.length - 1);
+                break;
+            }
+            case',': {
+                if (value.match(/,/g).length > 1) {
+                    throw Invalid;
+                }
+                if (value[0] === ',') {              //starts with , invalid
+                    throw Invalid;
+                }
+                result += value[i];
+                break;
+            }
+            case ' ': {
+                break;
+            }
+            default:
+                console.log("Invalid Token...");
+                throw Invalid;
+        }
+    }
+    return result;
 }
 
 /*******************************************************************************
