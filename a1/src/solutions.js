@@ -461,6 +461,9 @@ function normalizeCoord(value) {
     const latmin = -90;
     const latMax = 90;
     let result = "";
+    if (!value.length) {
+        throw Invalid;
+    }
     for (let i = 0; i < value.length; ++i) {
         switch (value[i]) {
             case '-': {
@@ -484,23 +487,29 @@ function normalizeCoord(value) {
             case '7':
             case '8':
             case '9': {
-                //get the entire number before a symbol
-                // check if the number is in the valid range
-                // if it's not
-                // -error
-                // if it is ++i equal to the size of the number -1
-                // add values to the new string to new string
-                let num = value.match(/[0-9]*[0-9]/).join('');
-                //let num = value.split(/[!@#$%^&*(,]/);
-                if (i === 0 || i === 1) {       //num is long
-                    if (num < longMin || num > longMax) {
-                        throw Invalid;
-                    }
-                } else if (i > 1) {                 //num is lat
+                if (value.length === 1) {
+                    throw Invalid;
+                }
+                let regex = (/[^\d.]+/);
+                let num;
+                let found = value.search(regex);
+                let is_lat = i === 0 || i === 1;
+                if (found && (is_lat)) {
+                    num = value.slice(i, found);
+                } else {
+                    num = value.slice(i, value.length);
+                }
+
+                if (is_lat) {       //num is lat
                     if (num < latmin || num > latMax) {
                         throw Invalid;
                     }
 
+                } else if (!is_lat) {                 //num is long
+
+                    if (num < longMin || num > longMax) {
+                        throw Invalid;
+                    }
                 }
                 result += num;
                 i += (num.length - 1);
@@ -510,13 +519,26 @@ function normalizeCoord(value) {
                 if (value.match(/,/g).length > 1) {
                     throw Invalid;
                 }
-                if (value[0] === ',') {              //starts with , invalid
+                if (value[0] === ',') {
+                    throw Invalid;
+                }
+                if (value[i + 1] !== '-' && value[i + 1] !== ' ') {
                     throw Invalid;
                 }
                 result += value[i];
                 break;
             }
             case ' ': {
+                if (value[i + 1] !== '-' && (/[^0-9]/).test(value[i + 1])) {
+                    throw Invalid;
+                }
+                if (value[0] === ' ') {
+                    throw Invalid;
+                }
+                if (value.match(/\s/g).length > 1) {
+                    throw Invalid;
+                }
+                result += value[i];
                 break;
             }
             default:
