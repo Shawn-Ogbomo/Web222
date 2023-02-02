@@ -466,6 +466,33 @@ function normalizeCoord(value) {
     }
     for (let i = 0; i < value.length; ++i) {
         switch (value[i]) {
+            case'[': {
+                if (value[0] !== '[') {
+                    throw Invalid;
+                }
+                if (value.match(/\[/g).length > 1) {
+                    throw Invalid;
+                }
+                if ((/[^0-9]/).test(value[i + 1]) && value[i + 1] !== '-') {
+                    throw Invalid;
+                }
+                result += '[';
+                break;
+            }
+
+            case']': {
+                if (value.match(/]/g).length > 1) {
+                    throw Invalid;
+                }
+                if (value[value.length - 1] !== ']') {
+                    throw Invalid;
+                }
+                if ((/[^0-9]/).test(value[value.length - 2])) {
+                    throw Invalid;
+                }
+                result += ']';
+                break;
+            }
             case '-': {
                 if (value.match(/-/g).length > 2) {
                     throw Invalid;
@@ -492,21 +519,25 @@ function normalizeCoord(value) {
                 }
                 let regex = (/[^\d.]+/);
                 let num;
-                let found = value.search(regex);
+                let found = value.slice(i, value.length).search(regex);
                 let is_lat = i === 0 || i === 1;
-                if (found && (is_lat)) {
-                    num = value.slice(i, found);
+                if (found && is_lat) {
+                    num = value.slice(i, (found + i));
+                } else if (is_lat && found === -1) {
+                    num = value.slice(i, value.length);
+                } else if (!is_lat && found !== -1) {
+                    num = value.slice(i, found + i);
                 } else {
                     num = value.slice(i, value.length);
                 }
 
-                if (is_lat) {       //num is lat
+
+                if (is_lat) {
                     if (num < latmin || num > latMax) {
                         throw Invalid;
                     }
 
-                } else if (!is_lat) {                 //num is long
-
+                } else if (!is_lat) {
                     if (num < longMin || num > longMax) {
                         throw Invalid;
                     }
@@ -515,6 +546,7 @@ function normalizeCoord(value) {
                 i += (num.length - 1);
                 break;
             }
+
             case',': {
                 if (value.match(/,/g).length > 1) {
                     throw Invalid;
@@ -522,10 +554,13 @@ function normalizeCoord(value) {
                 if (value[0] === ',') {
                     throw Invalid;
                 }
-                if (value[i + 1] !== '-' && value[i + 1] !== ' ') {
+                if (value[i + 1] !== '-' && (/[^0-9]/).test(value[i + 1]) && value[i + 1] !== ' ') {
                     throw Invalid;
                 }
                 result += value[i];
+                if (!/\s/.test(value)) {
+                    result += ' ';
+                }
                 break;
             }
             case ' ': {
@@ -546,7 +581,12 @@ function normalizeCoord(value) {
                 throw Invalid;
         }
     }
-    return result;
+    if (result[0] === '[') {
+        let valX = result.slice(1, result.indexOf(","));
+        let valY = result.slice(result.indexOf(",") + 2, result.indexOf("]"));
+        return "(" + valY + ", " + valX + ")";
+    }
+    return "(" + result + ")";
 }
 
 /*******************************************************************************
