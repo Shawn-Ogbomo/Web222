@@ -658,6 +658,24 @@ function formatCoords(...values) {
 
 function countForProvince(provinceCode, ...postalCodes) {
     // Replace this comment with your code...
+    class Invalid {
+    };
+    if (!arguments[1]) {
+        throw Invalid;
+    }
+    for (let i = 1; i < arguments.length; ++i) {
+        if (typeof arguments[i] !== "string") {
+            throw Invalid;
+        }
+    }
+
+    let count = 0;
+    for (let i = 1; i < arguments.length; ++i) {
+        if (toProvince(arguments[i], provinceCode) === provinceCode) {
+            ++count;
+        }
+    }
+    return count;
 }
 
 /*******************************************************************************
