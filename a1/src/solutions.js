@@ -729,6 +729,46 @@ function countForProvince(provinceCode, ...postalCodes) {
 
 function generateLicenseLink(licenseCode, targetBlank) {
     // Replace this comment with your code...
+    const attribution = ">Creative Commons Attribution License";
+    const nonComercial = ">Creative Commons Attribution-NonCommercial License";
+    const shareAlike = ">Creative Commons Attribution-ShareAlike License";
+    const noDerivs = ">Creative Commons Attribution-NoDerivs License";
+    const nonComercialShareAlike = ">Creative Commons Attribution-NonCommercial-ShareAlike License";
+    const nonComericalNoDerivs = ">Creative Commons Attribution-NonCommercial-NoDerivs License";
+    const noLicense = ">All Rights Reserved";
+
+
+    let extension = "";
+    if (licenseCode === "CC-BY") {
+        extension = attribution;
+    } else if (licenseCode === "CC-BY-NC") {
+        extension = nonComercial;
+    } else if (licenseCode === "CC-BY-SA") {
+        extension = shareAlike;
+    } else if (licenseCode === "CC-BY-ND") {
+        extension = noDerivs;
+    } else if (licenseCode === "CC-BY-NC-SA") {
+        extension = nonComercialShareAlike;
+    } else if (licenseCode === "CC-BY-NC-ND") {
+        extension = nonComericalNoDerivs;
+    } else {
+        extension = noLicense;
+    }
+
+
+    let url = "";
+    if (extension === noLicense) {
+        url = "https://choosealicense.com/no-permission/";
+    } else {
+        let formattedLicenseCode = licenseCode.slice(licenseCode.indexOf("-") + 1, licenseCode.length).toLowerCase();
+        url = "https://creativecommons.org/licenses/" + formattedLicenseCode + "/4.0/";
+    }
+    const opening_anchor = "<a href=";
+    const closing_anchor = "</a>";
+    if (targetBlank) {
+        url += '"' + " target=" + '"_' + "blank";
+    }
+    return opening_anchor + '"' + url + '"' + extension + closing_anchor;
 }
 
 /*******************************************************************************

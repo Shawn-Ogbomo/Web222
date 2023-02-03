@@ -1,0 +1,248 @@
+assignment operator 		allocates mem
+1 arg 				ctor allocates mem
+
+
+3
+
+line 101
+
+
+
+Longitude: -79.3496 (negative number means West)
+Latitude: 43.7955   (positive number means North)
+Valid Longitude values are decimal numbers between -180 and 180.
+Valid Latitude values are decimal numbers between -90 and 90.
+
+
+function normalizeCoord(target_string) {
+  valid Longitude range -180 and 180
+  valid Longitude range -90 and 90 
+  
+  Format long first part of string 
+  second part of string lat 
+  
+if long lat format 
+convert to lat long 
+
+  string to hold result 
+  //convert target string into array
+  Tokens
+  '-'
+  ','
+  '0'
+  '1'
+  '2'
+  '3'
+  '4'
+  '5'
+  '6'
+  '7'
+  '8'
+  '9'
+  '['
+  ']'
+  'space'	
+
+
+  switch(character){
+	
+
+       case '-'
+     {
+	check if '-' occurs more than twice
+	   - error
+       if character [i+1] is not a digit
+	   -error
+       if character[i+1] value is a digit 
+        read the entire number
+	check if the number is in the valid range 
+	how to find out if number is long or lat? 
+	first run is long 
+	second run is lat 
+	
+	if its not error
+	if it is ++i equal to the size of the number -1 convert to string to get size
+       add values to the new string to new string
+        continue 
+        
+      }
+
+	case:'1'
+	case:'2'
+	case:'3'
+	case:'4'
+	case:'5'
+	case:'6'
+	case:'7'
+	case:'8'
+	case:'9'
+	{
+			if match is found slice from index to match 
+			if match is not found using exec slice from index to end 
+			aassign result to num
+		    // if i is 0 or i is 1 
+	        	
+
+                    else if i is greater than 1 
+			let found = regex.exec(target_string)
+
+			- get the latitude by reading from the index until a character 			that is not an alphabet is encountered exclude that character
+			
+			
+ 
+ 		    // check if the number is in the valid range
+                    // if its not error
+                    // if it is ++i equal to the size of the number -1
+                    // add values to the new string 
+                    // continue
+
+	}
+	
+  }
+}
+
+"43.7955, -79.3496"
+-10,-3343y4y3$Y
+
+
+Coordinate 
+"sign" + "number" , "sign" + "number"
+"sign" + "number" ,  + "number"
+"number" + "," + "sign" + "number"
+
+
+
+"[" "sign" + "number" + "," "sign" + "number" + "]"
+"[" "sign" + "number" + "," + "number" + "]"
+"["  "number" + "," + "sign" + "number" + "]"
+
+
+
+
+
+no braces must contain space 
+braces must contain no space     
+
+
+
+
+change found from seach target string for regex 
+to slice from i to end then do a match for first occurence of regex 
+
+'-90.01, -79.3496$#'
+
+
+
+
+swap values in a parsed string 
+// save the first and second number in the string 
+//split sting into an array 
+//set everything after the [ to empty before comma ,
+//set everything after the comma to empty before the ]
+place the second value in the spot the first value was 
+place the first value in the spot where the second value was 
+use join to convert array to string on "" to remove extra space 
+string is in correct format  
+
+( 43.7955, -79.3496)
+
+
+returns a list of formated cords
+skips invalid cords
+if all are invalid returns an empty list 
+formatCoords(multiple strings){
+	vector of cords to hold result
+	traverse the arguement list for formatCoords
+	using the argument index as an argument for formatcord 
+	push back the return value of formatcoord to the vector of formated coords
+	if its invalid skip it by +1 itterator variable
+	
+}
+
+
+formatCoords(){
+	let formatedCoords;
+	try
+	for(let i = 0; i < argument length for formatCoords(); ++i){
+		formatedCoords.pushback(formatCoord(argument i for format_Coords))
+	}
+	if throws
+	catch and ++1 to skip the argument of formatedCoords
+	catch(){
+		skip the argument dont push 
+		run again	
+	}
+}
+
+
+
+(43.7955, -79.3496)
+
+
+function countForProvince(provinceCode, ...postalCodes) {
+    if type arugment count for postal codes are 0
+	-error
+
+  if type of postalcodes argument is not a string
+	error 
+
+	for(i = 0 ; i < postalcodes.len; ++i){
+	  if (argument[i+1] , province code as short form )
+		does not return null{
+		++count	
+          }
+	}
+		return count
+}
+
+
+function generateLicenseLink(licenseCode, targetBlank) {
+    // Replace this comment with your code...
+	const for each of the licenses 
+const attribution  = Creative Commons Attribution License
+const nonComerical = Creative Commons Attribution-NonCommercial License
+const shareAlike = Creative Commons Attribution-ShareAlike License
+const noDerivs = Creative Commons Attribution-NoDerivs License
+const nonComercialShareAlike = Creative Commons Attribution-NonCommercial-ShareAlike License
+const nonComericalNoDerivs= Creative Commons Attribution-NonCommercial-NoDerivs License
+const noLisence =  All Rights Reserved
+
+
+
+extension = empty string
+if the license code is CC-BY
+- extension = attribution
+
+else if license code is CC-BY-NC
+ -extension = nonComercial
+
+else if license code is CC-BY-SA
+ -extension = shareAlike
+
+else if license code is CC-BY-ND
+ -extension = noDerivs
+
+else if license code is CC-BY-NC-SA
+   -extension = nonComercialShareAlike
+else if license code is CC-BY-NC-ND
+   -extension = nonComercialShareAlike
+}
+else
+extension = noLicense;
+
+
+
+url= empty string
+if extension is no license
+ - url = https://choosealicense.com/no-permission/
+
+else{
+formattedLicenseCode =  targetCode slice from '-' to end including.tolowercase
+url = https://creativecommons.org/licenses/ + code + /4.0/
+}
+
+if targetBlank
+url += target="_blank
+
+
+
