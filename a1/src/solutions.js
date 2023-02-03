@@ -618,6 +618,16 @@ function normalizeCoord(value) {
 
 function formatCoords(...values) {
     // Replace this comment with your code...
+    let formatedCoords = [];
+    let pos = 0;
+    while (true) try {
+        for (let i = pos; i < arguments.length; ++i) {
+            formatedCoords.push(normalizeCoord(arguments[i]));
+        }
+        return "(" + formatedCoords.join(', ') + ")";
+    } catch (Invalid) {
+        ++pos;
+    }
 }
 
 /*******************************************************************************
