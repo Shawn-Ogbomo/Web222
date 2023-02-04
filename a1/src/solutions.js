@@ -138,7 +138,6 @@ greeting('WEB222 Student');
  ******************************************************************************/
 
 function normalizeVariable(value) {
-    // Replace this comment with your code...
     let invalids = /[.\s]/g;
     value = value.toUpperCase().trim();
     const underscore = '_';
@@ -210,7 +209,6 @@ function normalizeVariable(value) {
  ******************************************************************************/
 
 function createIframe(src, height, allowFullScreen) {
-    // Replace this comment with your code...
     src = src.trim();
     const iframeTag = "<iframe";
     const closingTag = "</" + "iframe>";
@@ -252,7 +250,6 @@ function createIframe(src, height, allowFullScreen) {
  ******************************************************************************/
 
 function fixPostalCode(postalCode) {
-    // Replace this comment with your code...
     class Invalid {
     };
     const invalids = /[DFIOQWUZ]/g;
@@ -332,8 +329,6 @@ function fixPostalCode(postalCode) {
  ******************************************************************************/
 
 function toProvince(postalCode, useShortForm) {
-    // Replace this comment with your code...
-
     try {
         let postal = fixPostalCode((postalCode));
         switch (postal.charAt(0)) {
@@ -452,7 +447,6 @@ function toProvince(postalCode, useShortForm) {
  ******************************************************************************/
 
 function normalizeCoord(value) {
-    // Replace this comment with your code...
     class Invalid {
     }
 
@@ -617,7 +611,6 @@ function normalizeCoord(value) {
  ******************************************************************************/
 
 function formatCoords(...values) {
-    // Replace this comment with your code...
     let formatedCoords = [];
     let pos = 0;
     while (true) try {
@@ -657,7 +650,6 @@ function formatCoords(...values) {
  ******************************************************************************/
 
 function countForProvince(provinceCode, ...postalCodes) {
-    // Replace this comment with your code...
     class Invalid {
     };
     if (!arguments[1]) {
@@ -728,7 +720,6 @@ function countForProvince(provinceCode, ...postalCodes) {
  ******************************************************************************/
 
 function generateLicenseLink(licenseCode, targetBlank) {
-    // Replace this comment with your code...
     const attribution = ">Creative Commons Attribution License";
     const nonComercial = ">Creative Commons Attribution-NonCommercial License";
     const shareAlike = ">Creative Commons Attribution-ShareAlike License";
@@ -796,7 +787,6 @@ function generateLicenseLink(licenseCode, targetBlank) {
  ******************************************************************************/
 
 function pureBool(value) {
-    // Replace this comment with your code...
     if (typeof value !== "string" && typeof value !== "boolean" && typeof value !== "number") {
         throw new Error("invalid value");
     }
@@ -804,7 +794,7 @@ function pureBool(value) {
         return value;
     }
     const min = 0;
-    const max = 1000;
+    const max = 100000;
     if (typeof value === "number" && value > min && value <= max) {
         return true;
     } else if (typeof value === "number" && value <= min) {
@@ -838,11 +828,45 @@ function pureBool(value) {
  ******************************************************************************/
 
 function every() {
-    // Replace this comment with your code...
+    for (let i = 0; i < arguments.length; ++i) {
+        let result = pureBool(arguments[i]);
+        if (!result) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function any() {
-    // Replace this comment with your code...
+    let result = [];
+    for (let i = 0; i < arguments.length; ++i) {
+        result.push(pureBool(arguments[i]));
+    }
+    let trueCount = 0;
+    let falseCount = 0;
+    for (let i = 0; i < result.length; ++i) {
+        if (result[i]) {
+            ++trueCount;
+        } else {
+            ++falseCount
+        }
+    }
+
+
+    if ((trueCount === 1) && (!falseCount)) {
+        return true;
+    } else if (falseCount === 1 && (!trueCount)) {
+        return false;
+    } else if (falseCount > 1 && (!trueCount)) {
+        return true;
+    } else if (trueCount > 1 && (!falseCount)) {
+        return true;
+    } else if (falseCount > 1 && falseCount > (trueCount / 2)) {
+        return false;
+    } else if (trueCount > 1 && trueCount > (falseCount / 2)) {
+        return true;
+    }
+
 }
 
 function none() {

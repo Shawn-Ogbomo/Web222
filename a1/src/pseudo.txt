@@ -267,3 +267,75 @@ function pureBool(value) {
     let regex3 = /t(rue)?$/i;
     let regex4 = /v(rai)?$/i;
     let regex5 = /[0-9]$/;
+
+
+function every() {
+try
+    for i = 0 ; i < arguments.len; ++i
+   result   = purebool(argumwnts i )
+        if the left is false, return false
+        if all are true return true
+
+catch error
+
+}
+function any() {
+    // Replace this comment with your code...
+    result = every()
+    store the amount of true and false in a vector
+    search the vector for the count of true and false
+
+    all true returns true
+    mostly true returns true (more than half size)
+    all false returns true
+    mostly false values returns false   (more than half size)
+
+    return result
+}
+
+function any() {
+    // Replace this comment with your code...
+    for i is 0; i is less than argument len; ++i
+    vector of bools(result) = every(arg i of any)
+
+    for i is 0; i is less than vector of bools size; ++i
+        trueCount = 0
+        falseCount = 0
+        if result i
+         ++trueCount
+
+         ++false count
+
+          if true count === 1 and false count === 0
+            return true
+
+          else if false count === 1 and true count === 0
+                return false
+
+          else if false count > 1 and true count === 0
+            return true
+
+          else if  true count > 1 and  false count === 0
+            return true
+
+          else if false count is greater than  1   and more than half of true count
+            return false
+
+          else if true count is greater than  1   and more than half of false count
+                return true
+
+
+
+
+
+    result = every(args from any)
+    store the amount of true and false in a vector
+    search the vector for the count of true and false
+
+    all true returns true
+    mostly true returns true (more than half size)
+    all false returns true
+    mostly false values returns false   (more than half size)
+
+    return result
+}
