@@ -246,3 +246,24 @@ url += target="_blank
 
 
 
+function pureBool(value) {
+    // Replace this comment with your code...
+    if typof target value is not a string number or boolean
+        error
+
+    if type is boolean
+     check if its true of false
+     return the result without conversion
+
+    if regex matches not case sensigive yes yes YES y Oui oui o t TRUE true True vrai V any positive number
+     return true
+
+    return false
+
+}
+
+ let regex1 = /y(es)?$/i;
+    let regex2 = /O(ui)?$/i;
+    let regex3 = /t(rue)?$/i;
+    let regex4 = /v(rai)?$/i;
+    let regex5 = /[0-9]$/;

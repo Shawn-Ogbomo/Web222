@@ -797,6 +797,30 @@ function generateLicenseLink(licenseCode, targetBlank) {
 
 function pureBool(value) {
     // Replace this comment with your code...
+    if (typeof value !== "string" && typeof value !== "boolean" && typeof value !== "number") {
+        throw new Error("invalid value");
+    }
+    if (typeof value === "boolean") {
+        return value;
+    }
+    const min = 0;
+    const max = 1000;
+    if (typeof value === "number" && value > min && value <= max) {
+        return true;
+    } else if (typeof value === "number" && value <= min) {
+        return false;
+    }
+    let invalids = [
+        "^[y](es)?$",
+        "^[O](ui)?$",
+        "^[t](rue)?$",
+        "^[v](rai)?$",
+    ];
+    let invalid = new RegExp(invalids.join("|"), "i");
+    if (invalid.test(value)) {
+        return true;
+    }
+    return false;
 }
 
 /*******************************************************************************
