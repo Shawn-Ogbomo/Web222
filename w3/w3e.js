@@ -85,3 +85,37 @@ function containsBadWord(restricted_words, username) {
 console.log(containsBadWord(["fool", "daft", "senseless"], "daft punk"));
 
 //question 10
+function extract(string, delimiter) {
+    if (string.indexOf(delimiter)) {
+        let left = string.slice(0, string.indexOf(delimiter));
+        let right = string.slice(string.indexOf(delimiter) + 1, string.length);
+        left = left.trim()
+        right = right.trim();
+        return left + " " + right;
+    }
+    return null;
+}
+
+console.log(extract("colour: blue", ":"));
+console.log(extract("colour:blue", ":"));
+console.log(extract("colour : blue", ":"));
+console.log(extract("colour: blue ", ":"));
+
+//question 11
+function longForm(addresses) {
+    let list = [];
+    addresses.forEach(function (address) {
+        if (address.endsWith("St.")) {
+            list.push(address.replace("St.", "Street"));
+        } else if (address.endsWith("Rd")) {
+            list.push(address.replace("Rd", "Road"));
+        } else {
+            list.push(address.replace("Rd", "Road"));
+        }
+    });
+    return list;
+}
+
+console.log(longForm(["James St.", "Yonge St.", "Albion Rd", "Weston road", "Mavis Road"]));
+
+//question 12
