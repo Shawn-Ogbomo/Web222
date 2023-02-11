@@ -38,3 +38,50 @@ function addDollars(numbers) {
 console.log(addDollars([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]));
 
 //question 5
+function tidy(strings) {
+    return strings.map(function (element) {
+        return element.trim();
+    });
+}
+
+console.log(tidy(["     shawn    ", "smith     ", "   James   ", " Ricky     ", " Lue    ", " Anne    ", " Jane     ", "   Francis   "]));
+
+//question 6
+function measure(strings) {
+    let count = 0;
+    strings.forEach((element) => {
+        count += element.length;
+    });
+    return count;
+}
+
+console.log(measure(["shawn", "b", "c", "d", "Toronto", "Vancouver", "C++", "C#"]));
+
+//question7
+function whereIsWaldo(strings) {
+    return strings.filter(string => string.includes("Waldo") || string.includes("waldo"));
+}
+
+console.log(whereIsWaldo(["Shawn Waldo", "Ricky Greem", "Shawn Ogbomo", "James waldo", "John Smith", "Wlado Wlado", "Where is Waldo?"]));
+
+//question 8
+function checkAges(ages, limit) {
+    return ages.every(age => age >= limit);
+}
+
+console.log(checkAges([23, 24, 27, 21, 20, 22, 25, 29], 20));
+
+//question 9
+function containsBadWord(restricted_words, username) {
+    let found = "";
+    restricted_words.forEach(function (badWord) {
+        if (username.includes(badWord)) {
+            found = badWord;
+        }
+    });
+    return found.length ? found : null;
+}
+
+console.log(containsBadWord(["fool", "daft", "senseless"], "daft punk"));
+
+//question 10
