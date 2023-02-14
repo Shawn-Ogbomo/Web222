@@ -41,6 +41,7 @@
  */
 
 const {results} = require("./data");
+const data = require("./data");
 
 /*******************************************************************************
  * Problem 00: Learning to write our tests
@@ -280,7 +281,7 @@ function transformObservations(data) {
  ******************************************************************************/
 function transformObservations2(data) {
     // TODO
-    return data.results.map(index =>{
+    return data.results.map(index => {
         return transformObservation(index);
     });
 }
@@ -317,6 +318,20 @@ function transformObservations2(data) {
  ******************************************************************************/
 function getObservationsById(data, ...ids) {
     // TODO
+    let matches = [];
+    ids.forEach(id => {
+        let foundObject = data.results.find(object => object.id === id);
+        if (foundObject) {
+            matches.push(foundObject);
+        }
+    });
+    if (matches.length === 1) {
+        return matches[0];
+    }
+    if (matches.length > 1) {
+        return matches;
+    }
+    return null;
 }
 
 /*******************************************************************************

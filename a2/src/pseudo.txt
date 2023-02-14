@@ -1,0 +1,22 @@
+function getObservationsById(data, ...ids) {
+    let matches = [];
+    //traverse the ids 
+    ids.forEach(id =>{
+            //compare all the object ids to the target id
+            let found = // object that matches the target id.
+                        // returns undefined if not foind 
+            // if found
+               - matches.push(//object with the matching id)
+
+    });
+
+    //if matches.length
+       - return matches
+    
+    
+    //else 
+       -return null
+}
+
+ids 
+486464
