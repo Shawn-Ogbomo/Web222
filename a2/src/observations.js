@@ -97,13 +97,15 @@ function getTotalResults(data) {
  ******************************************************************************/
 function observationSummary(data) {
     // TODO
-     for (let i = 0; i < results.length; ++i) {
-     console.log("#" + results[i].id + " - " + results[i].species_guess +
+    for (let i = 0; i < results.length; ++i) {
+        console.log("#" + results[i].id + " - " + results[i].species_guess +
             " [" + results[i].observed_on_details.date + "]");
     }
 
 }
+
 console.log(observationSummary(results));
+
 /*******************************************************************************
  * Problem 01 Part 2: use forEach() to iterate over Arrays
  *
@@ -114,7 +116,7 @@ console.log(observationSummary(results));
  ******************************************************************************/
 function observationSummary2(data) {
     // TODO
-    results.forEach( (index) =>{
+    results.forEach((index) => {
         console.log("#" + index.id + " - " + index.species_guess +
             " [" + index.observed_on_details.date + "]");
     });
@@ -161,7 +163,29 @@ function observationSummary2(data) {
  ******************************************************************************/
 function observationsByPrivacy(data, privacy) {
     // TODO
+    if (privacy) {
+        privacy = privacy.toLowerCase();
+    }
+    if (privacy !== "open" && privacy !== "obscured" && privacy !== null) {
+        throw new Error("Invalid privacy option...");
+    }
+    let total = [];
+    for (const observation of data.results) {
+        if (observation.privacy === privacy) {
+            total.push(observation);
+        }
+    }
+    return total;
 }
+const mixedResults = {
+    results: [
+        { privacy: 'obscured' },
+        { privacy: null },
+        { privacy: 'open' },
+        { privacy: 'obscured' }
+    ]
+};
+console.log(observationsByPrivacy(mixedResults, "obscured"));
 
 /*******************************************************************************
  * Problem 3 Part I: transformObservation(original) and transformObservations(cases)
