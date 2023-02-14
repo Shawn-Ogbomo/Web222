@@ -177,12 +177,13 @@ function observationsByPrivacy(data, privacy) {
     }
     return total;
 }
+
 const mixedResults = {
     results: [
-        { privacy: 'obscured' },
-        { privacy: null },
-        { privacy: 'open' },
-        { privacy: 'obscured' }
+        {privacy: 'obscured'},
+        {privacy: null},
+        {privacy: 'open'},
+        {privacy: 'obscured'}
     ]
 };
 console.log(observationsByPrivacy(mixedResults, "obscured"));
@@ -210,7 +211,35 @@ console.log(observationsByPrivacy(mixedResults, "obscured"));
  ******************************************************************************/
 function transformObservation(original) {
     // TODO
+    function swap(array) {
+        array[0] = parseFloat(array[0], 10);
+        array[1] = parseFloat(array[1], 10);
+        let temp = array[0];
+        array[0] = array[1];
+        array[1] = temp;
+        return array;
+    }
+
+    function transformPhotos(property) {
+        let photoUrls = [];
+        property.photos.forEach(index => {
+            photoUrls.push(index.url);
+        });
+        return photoUrls;
+    }
+
+    return {
+        id: original.id,
+        speciesGuess: original.species_guess,
+        isResearchQuality: original.quality_grade === "research",
+        geoCoords: swap(original.location.split(",")),
+        photoUrls: transformPhotos(original),
+        photosCount: transformPhotos(original).length,
+        user: "@" + original.user.login
+    };
 }
+
+console.log(transformObservation(results[0]));
 
 /*******************************************************************************
  * Problem 3 Part II: transformObservations(data) with iteration
@@ -229,6 +258,11 @@ function transformObservation(original) {
  ******************************************************************************/
 function transformObservations(data) {
     // TODO
+    let result = [];
+    data.results.forEach(index => {
+        result.push(transformObservation(index));
+    });
+    return result;
 }
 
 /*******************************************************************************
@@ -246,6 +280,9 @@ function transformObservations(data) {
  ******************************************************************************/
 function transformObservations2(data) {
     // TODO
+    return data.results.map(index =>{
+        return transformObservation(index);
+    });
 }
 
 /*******************************************************************************
