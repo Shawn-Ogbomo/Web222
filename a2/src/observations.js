@@ -326,7 +326,7 @@ function getObservationsById(data, ...ids) {
         }
     });
     if (matches.length === 1) {
-        return matches[0];
+        return matches.shift();
     }
     if (matches.length > 1) {
         return matches;
@@ -368,7 +368,41 @@ function getObservationsById(data, ...ids) {
 
 function getObservationsByPositionalAccuracy(data, options = {}) {
     // TODO
+    let matches = [];
+    if (options.eq && options.gte && options.lte || options.eq) {
+        data.results.forEach(element => {
+            if (element.positional_accuracy === options.eq) {
+                matches.push(element);
+            }
+        });
+        return matches;
+    } else if (options.gte && options.lte) {
+        data.results.forEach(element => {
+            if (element.positional_accuracy >= options.gte
+                && element.positional_accuracy <= options.lte) {
+                matches.push(element);
+            }
+        });
+        return matches;
+    } else if (options.gte) {
+        data.results.forEach(element => {
+            if (element.positional_accuracy >= options.gte) {
+                matches.push(element);
+            }
+        });
+        return matches;
+
+    } else if (options.lte) {
+        data.results.forEach(element => {
+            if (element.positional_accuracy <= options.lte) {
+                matches.push(element);
+            }
+        });
+        return matches;
+    }
+    return data.results;
 }
+
 
 /*******************************************************************************
  * Problem 06: getTaxonPhotos()
