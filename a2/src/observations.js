@@ -9,7 +9,7 @@
  * Please update the following with your information:
  *
  *      Name: <Shawn Ogbomo>
- *      Student ID: <YOUR_STUDENT_ID>
+ *      Student ID: <022609127>
  *      Date: <SUBMISSION_DATE>
  *
  * Please see all unit tests in the files problem-01.test.js, problem-02.test.js, etc.
@@ -102,10 +102,7 @@ function observationSummary(data) {
         console.log("#" + results[i].id + " - " + results[i].species_guess +
             " [" + results[i].observed_on_details.date + "]");
     }
-
 }
-
-console.log(observationSummary(results));
 
 /*******************************************************************************
  * Problem 01 Part 2: use forEach() to iterate over Arrays
@@ -117,7 +114,7 @@ console.log(observationSummary(results));
  ******************************************************************************/
 function observationSummary2(data) {
     // TODO
-    results.forEach((index) => {
+    data.results.forEach(index => {
         console.log("#" + index.id + " - " + index.species_guess +
             " [" + index.observed_on_details.date + "]");
     });
@@ -179,15 +176,17 @@ function observationsByPrivacy(data, privacy) {
     return total;
 }
 
-const mixedResults = {
-    results: [
-        {privacy: 'obscured'},
-        {privacy: null},
-        {privacy: 'open'},
-        {privacy: 'obscured'}
-    ]
-};
-console.log(observationsByPrivacy(mixedResults, "obscured"));
+//
+// const mixedResults = {
+//     results: [
+//         {privacy: 'obscured'},
+//         {privacy: null},
+//         {privacy: 'open'},
+//         {privacy: 'obscured'}
+//     ]
+//};
+
+// console.log(observationsByPrivacy(mixedResults, "obscured"));
 
 /*******************************************************************************
  * Problem 3 Part I: transformObservation(original) and transformObservations(cases)
@@ -213,8 +212,8 @@ console.log(observationsByPrivacy(mixedResults, "obscured"));
 function transformObservation(original) {
     // TODO
     function swap(array) {
-        array[0] = parseFloat(array[0], 10);
-        array[1] = parseFloat(array[1], 10);
+        array[0] = parseFloat(array[0]);
+        array[1] = parseFloat(array[1]);
         let temp = array[0];
         array[0] = array[1];
         array[1] = temp;
@@ -240,7 +239,7 @@ function transformObservation(original) {
     };
 }
 
-console.log(transformObservation(results[0]));
+// console.log(transformObservation(results[0]));
 
 /*******************************************************************************
  * Problem 3 Part II: transformObservations(data) with iteration
@@ -258,7 +257,7 @@ console.log(transformObservation(results[0]));
  *  - return the new Array containing all the transformed Objects
  ******************************************************************************/
 function transformObservations(data) {
-    // TODO
+//     // TODO
     let result = [];
     data.results.forEach(index => {
         result.push(transformObservation(index));
@@ -449,7 +448,30 @@ function getObservationsByPositionalAccuracy(data, options = {}) {
  ******************************************************************************/
 function getTaxonPhotos(data) {
     // TODO
+    let transformedObjs = [];
+    data.results.forEach(element => {
+        if (element.taxon) {
+            if (element.taxon.default_photo) {
+                let transformedObj = {
+                    original: "https://static.inaturalist.org/photos/" + element.taxon.default_photo.id +
+                        "original.jpg" + "?" + element.id,
+                    square: "https://static.inaturalist.org/photos/" + element.taxon.default_photo.id +
+                        "square.jpg" + "?" + element.id,
+                    small: "https://static.inaturalist.org/photos/" + element.taxon.default_photo.id +
+                        "small.jpg" + "?" + element.id,
+                    medium: "https://static.inaturalist.org/photos/" + element.taxon.default_photo.id +
+                        "medium.jpg" + "?" + element.id,
+                    large: "https://static.inaturalist.org/photos/" + element.taxon.default_photo.id +
+                        "large.jpg" + "?" + element.id,
+                };
+                transformedObjs.push(transformedObj);
+            }
+        }
+    });
+    return transformedObjs;
 }
+
+//console.log(getTaxonPhotos(results));
 
 /*******************************************************************************
  * Problem 07: getUserStats()
