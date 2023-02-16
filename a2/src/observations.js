@@ -10,7 +10,7 @@
  *
  *      Name: <Shawn Ogbomo>
  *      Student ID: <022609127>
- *      Date: <SUBMISSION_DATE>
+ *      Date: <02/15/2023>
  *
  * Please see all unit tests in the files problem-01.test.js, problem-02.test.js, etc.
  */
@@ -471,8 +471,6 @@ function getTaxonPhotos(data) {
     return transformedObjs;
 }
 
-//console.log(getTaxonPhotos(results));
-
 /*******************************************************************************
  * Problem 07: getUserStats()
  *
@@ -532,6 +530,25 @@ function getTaxonPhotos(data) {
  ******************************************************************************/
 function getUserStats(data) {
     // TODO
+    let totals = {
+        observations: 0,
+        journals: 0,
+        species: 0
+    };
+    data.results.forEach(element => {
+        totals.observations += element.user.observations_count;
+        totals.journals += element.user.journal_posts_count;
+        totals.species += element.user.species_count;
+    });
+    let averages = Object.assign({}, totals);
+    averages.observations /= data.results.length;
+    averages.journals /= data.results.length;
+    averages.species /= data.results.length;
+    return {
+        count: data.results.length,
+        totals,
+        averages
+    };
 }
 
 /**
