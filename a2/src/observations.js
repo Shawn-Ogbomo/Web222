@@ -185,9 +185,6 @@ function observationsByPrivacy(data, privacy) {
 //         {privacy: 'obscured'}
 //     ]
 //};
-
-// console.log(observationsByPrivacy(mixedResults, "obscured"));
-
 /*******************************************************************************
  * Problem 3 Part I: transformObservation(original) and transformObservations(cases)
  *
@@ -238,9 +235,6 @@ function transformObservation(original) {
         user: "@" + original.user.login
     };
 }
-
-// console.log(transformObservation(results[0]));
-
 /*******************************************************************************
  * Problem 3 Part II: transformObservations(data) with iteration
  *
@@ -264,7 +258,6 @@ function transformObservations(data) {
     });
     return result;
 }
-
 /*******************************************************************************
  * Problem 3 Part III: transformObservations2(data) with .map()
  *
@@ -284,7 +277,6 @@ function transformObservations2(data) {
         return transformObservation(index);
     });
 }
-
 /*******************************************************************************
  * Problem 04: getObservationsById()
  *
@@ -332,7 +324,6 @@ function getObservationsById(data, ...ids) {
     }
     return null;
 }
-
 /*******************************************************************************
  * Problem 05: getObservationsByPositionalAccuracy()
  *
@@ -401,8 +392,6 @@ function getObservationsByPositionalAccuracy(data, options = {}) {
     }
     return data.results;
 }
-
-
 /*******************************************************************************
  * Problem 06: getTaxonPhotos()
  *
@@ -470,7 +459,6 @@ function getTaxonPhotos(data) {
     });
     return transformedObjs;
 }
-
 /*******************************************************************************
  * Problem 07: getUserStats()
  *
@@ -550,7 +538,6 @@ function getUserStats(data) {
         averages
     };
 }
-
 /**
  * Problem 08: Part 1 - extractTimeZones()
  *
@@ -568,7 +555,16 @@ function getUserStats(data) {
  */
 function extractTimeZones(data) {
     // TODO
+    let timezones = [];
+    data.results.forEach(element => {
+        if (timezones.find(time => time === element.created_time_zone)) {
+            return;
+        }
+        timezones.push(element.created_time_zone);
+    });
+    return timezones;
 }
+
 
 /**
  * Problem 08: Part 2 - extractTimeZones2()
@@ -586,6 +582,13 @@ function extractTimeZones(data) {
 
 function extractTimeZones2(data) {
     // TODO
+    const timeZones = new Set();
+    data.results.forEach(element => {
+        if (!timeZones.has(element.created_time_zone)) {
+            timeZones.add(element.created_time_zone);
+        }
+    });
+    return Array.from(timeZones);
 }
 
 // Our unit test files need to access the functions we defined
