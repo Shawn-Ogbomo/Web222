@@ -1,0 +1,292 @@
+habitat 
+
+diet 
+
+behaviour 
+
+750-100 words 
+summary 
+eastern bluebird
+is he most common
+
+cannot copy text word for word 
+only use it as background material
+
+research on 3 other platforms 
+
+properly cite the urls you use in the about.html page
+
+do not copy and paste any text all words must be your own 
+
+At least 2 photos 
+
+At least 1 video use video element or iframe
+
+1 audio element in your page using the audio element
+if you cannot appropriate audid use an audio file from a band 
+etc with a similar name to your species 
+
+
+
+source 1 
+https://www.inaturalist.org/taxa/12942-Sialia-sialis
+Source 2 
+https://www.audubon.org/field-guide/bird/eastern-bluebird
+source 3 
+https://www.sialis.org/diet.htm
+source 4
+https://extension.psu.edu/managing-habitat-for-eastern-bluebirds
+source 5 
+https://portal.ct.gov/DEEP/Wildlife/Fact-Sheets/Eastern-Bluebird
+source 6 
+https://a-z-animals.com/blog/eastern-bluebird-male-vs-female-how-to-tell-them-apart/
+
+
+previously placed in the Motacilla sialis class
+currently placed in the genus sialia class
+
+
+16-21 cm height 
+weight 27-34 g 
+
+
+male
+light exterior (color)
+auburn upper - mid section
+
+
+female 
+lighter than males
+gray head and back 
+blue on wings on tail 
+upper mid section looks more orange 
+than male
+
+
+habitat 
+-east of the rocky mountains 
+warmer months 
+-pastures 
+-suburban parks 
+-backyards 
+-golf courses 
+-cemeteries
+-swamps 
+farms lands
+roadsides 
+-cavities for nesting
+-east north america 
+to nicaragua
+-areas with many perches and shrubs 
+(definee perch)
+-areas with shallow water for bathing 
+-nest in cavities in trees
+
+
+Behaviour 
+-social
+-territorial (feeding area winter not enough food)
+-travel in herds (sometimes greater than 100)
+
+
+
+Breeding 
+-mate during the warmer seasons 
+spring and summer
+-breeding occurs in april 
+-female 6-8 eggs (pale-blue)
+hatch within 2 weeks time span 
+offspring are cared for by both parents
+approximately 2 to 3 weeks 
+
+
+
+-offspring 
+grey color 
+spekcled exteriour
+fades as they age 
+eat meal worms exclusively
+
+
+
+lifespan
+-6-10 years 
+-most last 1 year 
+-scant food supply 
+-harsh weather conditions 
+-other animals and humans 
+cause the bluebird to have a shorter 
+lifespan by destroying their homes 
+and eggs 
+
+
+
+some animals that will disrupt their habitat
+-invasive species 
+-flying squierrels 
+-american black bears 
+-fire ants 
+-raccoons
+
+
+
+prey to 
+
+-falcons 
+-owls 
+-hawks
+-sing when preditors are nearby 
+(sing softly and with succession) (warble)
+to attract male birds to return
+them to their territory
+
+
+
+incorrect placement of perches (and bluebird boxes?)
+will attract foreign invaders
+(other birds ) to hunt the blue birds 
+to prevent blue birds from being hunted 
+use (preidator Guards) picture explain this 
+
+pesticides 
+insuficient food suply
+competing with other bird species
+
+urbanization inhibts reproduction
+
+
+diet
+balanced diet
+
+avoid birdseed 
+-unable to digest seeds 
+seed exceptions 
+sunflower hearts/chips
+crushed peanuts/nuts 
+and occasionally black sunflower seeds in the hull and safflower seeds
+bluebirds may consume these foods during harsh weather conditions 
+-winter
+
+
+-insects 
+majority of bluebird diet 
+{
+preference
+-grasshopers 
+-crickets
+-katydids
+-beetles
+-earthworms
+-spiders
+-millipedes
+-centipedes
+-sowbugs 
+-snails 
+}
+
+nesting season diet comprises mainly insects to feed offspring 
+nestlings(baby) fed mainly cataphillars grasshopers and spiders 
+-wildfruits and berries  *especially in the winter
+... flowering dogwood 
+remainder of diet   (cooler seasons these become main foods)
+{
+    fruits 
+...holly                    include pictures of these fruits
+...mulberry
+...wild grape
+...virginia creeper
+... pokeweed
+...viburnum
+}
+
+
+
+How do they hunt for food? 
+wait in high places 
+-branches
+-posts
+fly down and attack
+-sometimes they can hunt airborne insects 
+-
+
+if food supply is limited in the winter 
+-migrate where?
+-areas where nestboxes are available
+-may remain in the same habitat through the winter
+-travel north as far as oregon 
+-to new england south?
+
+
+-if food supply is sufficient
+travel to areas comprising manifold bushes 
+and fruit trees
+
+
+
+website structure
+
+The eastern bluebird <h1>? 
+
+Overview            <h2>? underline ? bold?  
+The eastern bluebird is the most common type of blue bird.          <p>tag?  
+The eastern bluebird is native to North America and was discovered by a swedish botanist named carl linnaeus <anchor link?> to carl linnaeus and the other botanist?.
+Carl linnaeus assigned the binomial name Montacilla sialis to the eastern bluebird (define binomail name) in 1958. Today, the eastern bluebird is listed under the name Genus sialia. The binomial name Genus sialia was invented by a New Zealand botanist named William John Swainson(define Genus). 
+Eastern bluebirds are decreasing in number due to urbanization, lack of nesting cavities, and invasion of foreign species such as sparrows and harlings.
+(picture of nesting cavity).
+ However, their population is steadily growing due to the increasing number of bird boxes and trails humans are building.
+
+
+
+Description
+There are subtle differences between the males and the females. 
+Male eastern bluebirds have a light exterior.
+Their heads and wings are light blue amd their mid section is auburn in color.
+Typically, the males weigh 0.09-1.1 oz and their height ranges from 6 to 8 inches. The males assist with raising offspring but will not build nests.
+They also protect their offspring from preditors some being: hawks, sparrows, racoons, and falcons.
+
+(show a picture comparing the two genders)
+
+Female eastern bluebirds have a bluish grey exterior and they are lighter than their male counterparts. Their head, shoulders, and wings are of a lighter blue and their wings are shorter. Females are usually heavier than the males and weigh 1.02 to 1.13 oz. Females are 6.3 to 8.3 inches tall and their mid section is more orange than males. The females are responsible for traveling out of their habitat to aquire resources in order to build nests for their offspring. They usually lay about 4-7 pale blue eggs.
+
+Babies (offspring)
+grey color 
+spekcled exteriour
+fades as they age 
+
+Diet
+Eastern blubirds adhere to an omnivorus diet.
+The diet consists insects such as grasshopers,
+crickets, katydids, beetles, earthworms, spiders,millipedes
+centipedes, sowbugs, and snails. 
+The fruits they eat are: 
+holly, mulberry, wild grape, virginia creeper, pokeweed
+and viburnum.
+They avoid birdseed since they are unable to digest seeds. However there are a few exceptions: 
+sunflower seeds crushed peanuts and nuts, black sunflower seeds,
+and safflower seeds.
+bluebirds may consume these foods during harsh weather conditions eg.. 
+winter
+During the colder seasons, the bluebirds consume more fruits than insects. Bluebirds hunt their prey by waiting in high places such as branches and posts. Once their target has been identified, they fly down and attack and sometimes they will hunt airborne insects. 
+Babyblue birds are fed a diet which consists of mainly protiens.
+
+
+lifespan
+Bluebirds usually live 6 to 10 years.
+However, most only last one year because of harsh weaher conditions 
+and scant food supply. Eastern bluebirds don't live as long as they should since they are constantly being hunted by other species such as hawks, and sparrows. Urbanization has also played a role in the decreasing population of eastern bluebirds. Through urbanization, their eggs and habitat is destroyed. To increase the population of eastern bluebirds, shrubs should be planted and bird boxes should be installed at the correct heights in order to protect them against invaders that will destroy their habitat and eggs.
+To ensure bird boxes are at the correct height, preditor guards should be used.
+(show picture of a preditor guard?)
+
+
+
+
+Behaviour 
+-social
+-territorial (feeding area winter not enough food)
+-travel in herds (sometimes greater than 100)
+
+
+
+
+Habitat
+
